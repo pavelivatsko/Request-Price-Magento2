@@ -1,0 +1,60 @@
+<div class="actions">
+    <button type="submit" title="Request Price" class="action primary tocart" id="product-addtocart-button">
+        <a href="#"><span class="request-button"><?php echo __('Request Price') ?></span></a>
+    </button>
+</div>
+<div id="popup-modal-request">
+    <div id="alert-ajax" style="display: none"></div>
+    <h1> <?php echo __('Please input your data for get price product') ?></h1>
+    <form data-mage-init='{"validation":{}}' id="request-price-form" method="POST">
+        <div class="form-group">
+            <label for="inputName"><?php echo __('Your Name (required)') ?></label>
+            <input type="text" name="name" data-validate='{"required":true}' placeholder="<?php echo __('Your Name (required)') ?>"
+                   id="inputName">
+        </div>
+        <div class="form-group">
+            <label for="inputEmail"><?php echo __('Your Email address (required)') ?></label>
+            <input type="email" name="email"  data-validate="{required:true, 'validate-email':true}" placeholder="<?php echo __('Your Email (required)') ?>"
+                   id="inputEmail">
+        </div>
+        <div class="form-group">
+            <label for="inputComment"><?php echo __('Your Comment') ?></label>
+            <textarea placeholder="<?php echo __('Your Comment') ?>" name="comment" cols="30" rows="10"></textarea>
+        </div>
+        <input type="hidden" name="product_sku" value="<?php echo $block->getProductSku(); ?>">
+        <input type="submit">
+    </form>
+</div>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Request Price',
+                buttons: [{
+                    text: $.mage.__('Continue'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-modal-request'));
+            $(".request-button").on('click',function(){
+                $("#popup-modal-request").modal("openModal");
+            });
+
+        }
+    );
+</script>

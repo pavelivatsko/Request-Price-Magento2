@@ -1,5 +1,5 @@
 <?php
-namespace Ivatsko\RequestPrice\Block\Adminhtml\Allrecords\Edit;
+namespace Ivatsko\RequestPrice\Block\Adminhtml\AllRecords\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 

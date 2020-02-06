@@ -1,5 +1,5 @@
 <?php
-namespace Ivatsko\RequestPrice\Block\Adminhtml\Allrecords\Edit;
+namespace Ivatsko\RequestPrice\Block\Adminhtml\AllRecords\Edit;
 
 use Magento\Backend\Block\Widget\Context;
 use Ivatsko\RequestPrice\Api\RequestPriceRepositoryInterface;
