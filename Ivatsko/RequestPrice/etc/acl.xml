@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Ivatsko_RequestPrice::request" title="Request Price" sortOrder="51">
+                    <resource id="Ivatsko_RequestPrice::records_allrecords" title="All Records" sortOrder="10">
+                        <resource id="Ivatsko_RequestPrice::save" title="Save Records" translate="title" sortOrder="10" />
+                        <resource id="Ivatsko_RequestPrice::records_delete" title="DeleteRecords" translate="title" sortOrder="20" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Ivatsko_RequestPrice::records_config" title="Records" translate="title"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
