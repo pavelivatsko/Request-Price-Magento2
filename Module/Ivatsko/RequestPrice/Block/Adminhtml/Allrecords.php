@@ -1,6 +1,12 @@
 <?php
+declare(strict_types=1);
+
 namespace Ivatsko\RequestPrice\Block\Adminhtml;
 
+/**
+ * Class Allrecords
+ * @package Ivatsko\RequestPrice\Block\Adminhtml
+ */
 class Allrecords extends \Magento\Backend\Block\Widget\Grid\Container
 {
     protected function _construct()
@@ -18,6 +24,10 @@ class Allrecords extends \Magento\Backend\Block\Widget\Grid\Container
         }
     }
 
+    /**
+     * @param $resourceId
+     * @return mixed
+     */
     protected function _isAllowedAction($resourceId)
     {
         return $this->_authorization->isAllowed($resourceId);

@@ -1,7 +1,13 @@
 <?php
+declare(strict_types=1);
+
 namespace Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords;
 
 
+/**
+ * Class NewAction
+ * @package Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords
+ */
 class NewAction extends \Magento\Backend\App\Action
 {
     /**

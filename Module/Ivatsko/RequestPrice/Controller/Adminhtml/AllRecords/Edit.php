@@ -1,9 +1,15 @@
 <?php
+declare(strict_types=1);
+
 namespace Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords;
 
 use Magento\Backend\App\Action;
 use Ivatsko\RequestPrice\Model\RequestPrice as RequestPriceModel;
 
+/**
+ * Class Edit
+ * @package Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords
+ */
 class Edit extends \Magento\Backend\App\Action
 {
     /**

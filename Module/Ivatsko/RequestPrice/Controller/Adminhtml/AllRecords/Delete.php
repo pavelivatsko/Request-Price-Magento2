@@ -1,7 +1,12 @@
 <?php
+declare(strict_types=1);
 
 namespace Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords;
 
+/**
+ * Class Delete
+ * @package Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords
+ */
 class Delete extends \Magento\Backend\App\Action
 {
     /**

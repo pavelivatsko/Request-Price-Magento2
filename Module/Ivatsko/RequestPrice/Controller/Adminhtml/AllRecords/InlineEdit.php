@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords;
 
 use Magento\Backend\App\Action\Context;
@@ -6,8 +8,15 @@ use Ivatsko\RequestPrice\Api\RequestPriceRepositoryInterface as RequestPriceRepo
 use Magento\Framework\Controller\Result\JsonFactory;
 use Ivatsko\RequestPrice\Api\Data\RequestPriceInterface;
 
+/**
+ * Class InlineEdit
+ * @package Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords
+ */
 class InlineEdit extends \Magento\Backend\App\Action
 {
+    /**
+     * @var RequestPriceRepository
+     */
     protected $requestPriceRepository;
 
     /**
@@ -15,6 +24,12 @@ class InlineEdit extends \Magento\Backend\App\Action
      */
     protected $jsonFactory;
 
+    /**
+     * InlineEdit constructor.
+     * @param Context $context
+     * @param RequestPriceRepository $requestPriceRepositoryConstruct
+     * @param JsonFactory $jsonFactory
+     */
     public function __construct(
         Context $context,
         RequestPriceRepository $requestPriceRepositoryConstruct,
@@ -81,11 +96,22 @@ class InlineEdit extends \Magento\Backend\App\Action
         ]);
     }
 
+    /**
+     * @param RequestPriceInterface $records
+     * @param $errorText
+     * @return string
+     */
     protected function getErrorWithRecordsId(RequestPriceInterface $records, $errorText)
     {
         return '[Records ID: ' . $records->getId() . '] ' . $errorText;
     }
 
+    /**
+     * @param \Ivatsko\RequestPrice\Model\RequestPrice $records
+     * @param array $extendedRecordData
+     * @param array $recordsData
+     * @return $this
+     */
     public function setRecordsData(\Ivatsko\RequestPrice\Model\RequestPrice $records, array $extendedRecordData, array $recordsData)
     {
         $records->setData(array_merge($records->getData(), $extendedRecordData, $recordsData));

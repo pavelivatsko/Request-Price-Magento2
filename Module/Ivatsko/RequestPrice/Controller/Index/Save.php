@@ -7,11 +7,23 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Ivatsko\RequestPrice\Model\RequestPriceFactory;
 
+/**
+ * Class Save
+ * @package Ivatsko\RequestPrice\Controller\Index
+ */
 class Save extends Action
 {
 
+    /**
+     * @var RequestPriceFactory
+     */
     protected $requestPriceFactory;
 
+    /**
+     * Save constructor.
+     * @param Context $context
+     * @param RequestPriceFactory $requestPriceFactoryConstruct
+     */
     public function __construct(
         Context $context,
         RequestPriceFactory $requestPriceFactoryConstruct

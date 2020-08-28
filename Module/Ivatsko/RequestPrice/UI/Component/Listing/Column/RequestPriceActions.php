@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Ivatsko\RequestPrice\Ui\Component\Listing\Column;
 

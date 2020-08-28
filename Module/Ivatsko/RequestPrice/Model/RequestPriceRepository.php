@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Ivatsko\RequestPrice\Model;
 
@@ -13,20 +14,51 @@ use Ivatsko\RequestPrice\Model\ResourceModel\RequestPrice as ResourceRequestPric
 use Ivatsko\RequestPrice\Model\ResourceModel\RequestPrice\RequestPriceCollectionFactory as RequestPriceCollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
 
+/**
+ * Class RequestPriceRepository
+ * @package Ivatsko\RequestPrice\Model
+ */
 class RequestPriceRepository implements RequestPriceRepositoryInterface
 {
+    /**
+     * @var ResourceRequestPrice
+     */
     protected $resource;
 
+    /**
+     * @var RequestPriceFactory
+     */
     protected $requestPriceFactory;
 
+    /**
+     * @var DataObjectHelper
+     */
     protected $dataObjectHelper;
 
+    /**
+     * @var DataObjectProcessor
+     */
     protected $dataObjectProcessor;
 
+    /**
+     * @var Data\RequestPriceInterfaceFactory
+     */
     protected $dataRequestPriceFactory;
 
+    /**
+     * @var StoreManagerInterface
+     */
     private $storeManager;
 
+    /**
+     * RequestPriceRepository constructor.
+     * @param ResourceRequestPrice $resource
+     * @param RequestPriceFactory $requestPriceFactory
+     * @param Data\RequestPriceInterfaceFactory $dataRequestPriceFactory
+     * @param DataObjectHelper $dataObjectHelper
+     * @param DataObjectProcessor $dataObjectProcessor
+     * @param StoreManagerInterface $storeManager
+     */
     public function __construct(
         ResourceRequestPrice $resource,
         RequestPriceFactory $requestPriceFactory,
@@ -43,6 +75,10 @@ class RequestPriceRepository implements RequestPriceRepositoryInterface
         $this->storeManager = $storeManager;
     }
 
+    /**
+     * @param Data\RequestPriceInterface $records
+     * @return Data\RequestPriceInterface|mixed
+     */
     public function save(\Ivatsko\RequestPrice\Api\Data\RequestPriceInterface $records)
     {
         if ($records->getStoreId() === null) {
@@ -60,6 +96,10 @@ class RequestPriceRepository implements RequestPriceRepositoryInterface
         return $records;
     }
 
+    /**
+     * @param $recordsId
+     * @return mixed
+     */
     public function getById($recordsId)
     {
         $records = $this->requestPriceFactory->create();
@@ -70,6 +110,10 @@ class RequestPriceRepository implements RequestPriceRepositoryInterface
         return $records;
     }
 
+    /**
+     * @param Data\RequestPriceInterface $records
+     * @return bool|mixed
+     */
     public function delete(\Ivatsko\RequestPrice\Api\Data\RequestPriceInterface $records)
     {
         try {
@@ -83,6 +127,10 @@ class RequestPriceRepository implements RequestPriceRepositoryInterface
         return true;
     }
 
+    /**
+     * @param $recordsId
+     * @return bool|mixed
+     */
     public function deleteById($recordsId)
     {
         return $this->delete($this->getById($recordsId));

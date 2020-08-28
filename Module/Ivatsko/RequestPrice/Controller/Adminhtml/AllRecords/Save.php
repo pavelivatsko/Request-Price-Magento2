@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords;
 
@@ -7,6 +8,10 @@ use Ivatsko\RequestPrice\Model\RequestPrice;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 
+/**
+ * Class Save
+ * @package Ivatsko\RequestPrice\Controller\Adminhtml\AllRecords
+ */
 class Save extends \Magento\Backend\App\Action
 {
     /**
@@ -24,6 +29,13 @@ class Save extends \Magento\Backend\App\Action
      */
     private $requestPriceRepository;
 
+    /**
+     * Save constructor.
+     * @param Action\Context $context
+     * @param DataPersistorInterface $dataPersistor
+     * @param \Ivatsko\RequestPrice\Model\RequestPriceFactory|null $requestPriceFactoryConstruct
+     * @param \Ivatsko\RequestPrice\Api\RequestPriceRepositoryInterface|null $requestPriceRepositoryConstruct
+     */
     public function __construct(
         Action\Context $context,
         DataPersistorInterface $dataPersistor,

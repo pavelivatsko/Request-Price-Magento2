@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Ivatsko\RequestPrice\Block\Adminhtml\AllRecords\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
